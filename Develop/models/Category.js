@@ -21,6 +21,7 @@ Category.init(
 
   },
   {
+    // Sets appropriate properties for sequelize for Category model 
     sequelize,
     timestamps: false,
     freezeTableName: true,
