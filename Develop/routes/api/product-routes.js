@@ -5,32 +5,34 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
+    // find all products and includes its associated Category and Tag data
   Product.findAll( {
-    include: [Category],
+    include: [Category, { model: Tag, attributes: ['tag_name'], through: ProductTag, as: 'productTag_products'}],
   }).then((productData) => {
     res.json(productData);
   });
-  // find all products
-  // be sure to include its associated Category and Tag data
+
 });
 
 // get one product
 router.get('/:id', (req, res) => {
-    // Finds a single product by its primary key (product_id) and includes its associated Category and Tag Data 
-    Product.findByPk(req.params.id).then((productData) => {
+    // Finds a single product by its primary key (product id) and includes its associated Category and Tag Data 
+    Product.findByPk(req.params.id, {
+      include: [Category, { model: Tag, attributes: ['tag_name'], through: ProductTag, as: 'productTag_products'}],
+    }).then((productData) => {
       res.json(productData);
     });
 });
 
 // create new product
 router.post('/', (req, res) => {
-  Product.create(req.body)
-  .then((newProduct) => {
-    res.json(newProduct);
-  })
-  .catch((err) => {
-    res.json(err);
-  });
+  // Product.create(req.body)
+  // .then((newProduct) => {
+  //   res.json(newProduct);
+  // })
+  // .catch((err) => {
+  //   res.json(err);
+  // });
 
   /* req.body should look like this...
     {
