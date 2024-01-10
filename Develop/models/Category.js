@@ -6,7 +6,7 @@ class Category extends Model {}
 
 //Set up fields and rules for Category model with id and category_name
 Category.init(
-  // Define columns
+  // Defined columns
   {
     id: {
       type: DataTypes.INTEGER,
