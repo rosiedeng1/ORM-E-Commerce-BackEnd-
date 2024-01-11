@@ -14,6 +14,7 @@ Npm run start to start the application
 
 ## Usage 
 Link on how to use the application: https://drive.google.com/file/d/1RVjIP_Ua02_CuEUuOSx1Hqs8Od4FkDAA/view
+(One minor change in walkthrough video to be noted: Under the UPDATE Tags, if you change the id to 9 in parameter and send, it will update tag_name to "electronic music" accordingly.)
 
 ![InsomniaOperations](Assets/images/InsomniaOperations.png)
 
